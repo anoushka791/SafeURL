@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alert: Malicious Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #FF3333; /* Red background color */
+            color: white;
+        }
+        .alert-container {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .proceed-button {
+            padding: 10px 20px;
+            background-color: #33AA33; /* Green button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="alert-container">
+        <h1>STOP! Malicious Website</h1>
+        <p>This website has been classified as malicious and may harm your computer.</p>
+        <p>Do you want to proceed anyway?</p>
+        <button class="proceed-button" id="proceed-button">Proceed</button>
+    </div>
+
+    <script>
+        const proceedButton = document.getElementById('proceed-button');
+        
+        proceedButton.addEventListener('click', function() {
+            // Handle the action when the user chooses to proceed despite the warning.
+            // You can add your logic here, such as allowing access to the URL.
+            
+            // For example, you can use the following code to navigate to the URL:
+            // Replace 'urlToProceed' with the actual URL.
+            const urlToProceed = "https://example.com";
+            chrome.tabs.update({url: urlToProceed});
+        });
+    </script>
+</body>
+</html>

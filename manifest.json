@@ -1,0 +1,34 @@
+{
+  "manifest_version": 1,
+  "name": "URL Classifier Extension",
+  "version": "1.0",
+  "description": "Classify URLs as benign or malicious",
+  "permissions": ["activeTab", "storage", "webNavigation", "webRequest", "webRequestBlocking", "http://*/*", "https://*/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["tfjs_model/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+
+
+
